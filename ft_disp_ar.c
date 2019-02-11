@@ -14,10 +14,8 @@
 
 void	ft_disp_ar(char **ar_of_ar)
 {
-	int x;
 	int y;
 
-	x = 0;
 	y = 0;
 	while (ar_of_ar[y])
 	{

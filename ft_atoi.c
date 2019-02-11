@@ -30,9 +30,9 @@ int	ft_atoi(const char *nptr)
 	while (nptr[cnt] >= '0' && nptr[cnt] <= '9')
 	{
 		nb = nb * 10 + (nptr[cnt] - 48);
-		if (sign == 1 && nb > INT64_MAX)
+		if (sign == 1 && nb > __INT64_MAX__)
 			return (-1);
-		if (sign == -1 && nb > (size_t)INT64_MAX + 1)
+		if (sign == -1 && nb > (size_t)__INT64_MAX__ + 1)
 			return (0);
 		cnt++;
 	}
