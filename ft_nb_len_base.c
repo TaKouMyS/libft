@@ -6,7 +6,7 @@
 /*   By: amamy <amamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 14:38:37 by amamy             #+#    #+#             */
-/*   Updated: 2019/03/03 15:51:49 by amamy            ###   ########.fr       */
+/*   Updated: 2019/03/03 15:56:25 by amamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_nb_len_base(int value, int base)
 	int	size;
 
 	size = 0;
+	if (value == 0 || value == -0)
+		size = 1;
 	if (value < 0)
 		size++;
 	while (value != 0)
