@@ -6,7 +6,7 @@
 /*   By: amamy <amamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 12:25:13 by amamy             #+#    #+#             */
-/*   Updated: 2019/02/07 20:17:44 by amamy            ###   ########.fr       */
+/*   Updated: 2019/07/26 22:19:40 by amamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memalloc(size_t size)
 {
 	void	*mem;
 
-	if (!(mem = (void*)malloc(size)))
+	if (!(mem = malloc(size)))
 		return (NULL);
 	ft_memset(mem, 0, size);
 	return (mem);
