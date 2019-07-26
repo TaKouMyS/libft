@@ -6,7 +6,7 @@
 #    By: amamy <amamy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 20:19:54 by amamy             #+#    #+#              #
-#    Updated: 2019/07/26 22:04:24 by amamy            ###   ########.fr        #
+#    Updated: 2019/07/26 22:43:08 by amamy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,12 +106,12 @@ _END=\e[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(PRINT) "compiling libft... "
+	@$(PRINT) "\nCreating library... :"
 	@ar rcs $(NAME) $(OBJ)
-	@printf "[$(_GREEN)✓$(_END)]\n"
+	@printf "[$(_GREEN)✓$(_END)]\n\n"
 
 $(OBJDIR)/%.o: %.c $(HEAD)
-	@$(PRINT) "Sources : "
+	@$(PRINT) "Libft : "
 	@$(CC) -c $(CFLAGS) $(ALLFLAGS) $@ $<
 	@$(PRINT) "$(_CYAN)$<\n$(_END)"
 
