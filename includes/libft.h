@@ -6,7 +6,7 @@
 /*   By: amamy <amamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 20:20:26 by amamy             #+#    #+#             */
-/*   Updated: 2019/07/26 22:04:53 by amamy            ###   ########.fr       */
+/*   Updated: 2019/07/30 20:35:02 by amamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "../ft_printf/src/ft_printf.h"
 
 /*
 ** BUFF_SIZE :
@@ -98,5 +99,6 @@ void			lstendadd(t_list *alst, t_list *new);
 int				ft_nb_len_base(long value, int base);
 char			*ft_itoa_base(long n, int base);
 int				get_next_line(const int fd, char **line);
+int				ft_printf(const char *format, ...);
 
 #endif

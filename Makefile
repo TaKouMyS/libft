@@ -6,7 +6,7 @@
 #    By: amamy <amamy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 20:19:54 by amamy             #+#    #+#              #
-#    Updated: 2019/07/26 23:05:06 by amamy            ###   ########.fr        #
+#    Updated: 2019/07/30 22:27:23 by amamy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,8 +93,71 @@ SRCS =	$(FT_IS_DIR)/ft_isalnum.c			\
 		$(FT_STR_DIR)/ft_strsub.c			\
 		$(FT_STR_DIR)/ft_strtrim.c			\
 
+FT_PRINTF = ft_printf
+LIBDIR	= libft
+CONVDIR = src/conversions
+FLAGDIR = src/flags
+
+FT_PRINTF_SRCS =	$(FT_PRINTF)/$(LIBDIR)/ft_atoi.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_bzero.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_intlen.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_itoa_base_P.c			\
+					$(FT_PRINTF)/$(LIBDIR)/ft_itoa_bmul.c			\
+					$(FT_PRINTF)/$(LIBDIR)/ft_itoa_l.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_memalloc.c			\
+					$(FT_PRINTF)/$(LIBDIR)/ft_memset.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_nb_len_base.c			\
+					$(FT_PRINTF)/$(LIBDIR)/ft_putchar.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_putstrn.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strcat.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strchr.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strcmp.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strcpy.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strdup.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strjoin.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strlen.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strncpy.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strndup.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strnew.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_strsub.c				\
+					$(FT_PRINTF)/$(LIBDIR)/ft_tolower.c				\
+					$(FT_PRINTF)/$(CONVDIR)/ft_c.c					\
+					$(FT_PRINTF)/$(CONVDIR)/ft_d_i.c				\
+					$(FT_PRINTF)/$(CONVDIR)/ft_f.c					\
+					$(FT_PRINTF)/$(CONVDIR)/ft_f2.c					\
+					$(FT_PRINTF)/$(CONVDIR)/ft_o.c					\
+					$(FT_PRINTF)/$(CONVDIR)/ft_p.c					\
+					$(FT_PRINTF)/$(CONVDIR)/ft_s_mode0.c			\
+					$(FT_PRINTF)/$(CONVDIR)/ft_s_mode1.c			\
+					$(FT_PRINTF)/$(CONVDIR)/ft_u.c					\
+					$(FT_PRINTF)/$(CONVDIR)/ft_xx.c					\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_accuracy.c			\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_f_width_accuracy.c	\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_fwp_minus.c 			\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_fwp_string.c			\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_fwp.c				\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_fwp_not_ap_neg.c		\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_fwp_cases.c			\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_hhh_lll.c			\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_plus_minus.c			\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_sharp.c				\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_width_string.c		\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_width_minus.c		\
+					$(FT_PRINTF)/$(FLAGDIR)/ft_width.c				\
+					$(FT_PRINTF)/src/ft_printf.c						\
+					$(FT_PRINTF)/src/ft_analyse_format.c				\
+					$(FT_PRINTF)/src/ft_flags.c							\
+					$(FT_PRINTF)/src/ft_which_flag.c					\
+					$(FT_PRINTF)/src/ft_only_conv.c						\
+					$(FT_PRINTF)/src/ft_active_flags.c					\
+					$(FT_PRINTF)/src/ft_flags2.c						\
+					$(FT_PRINTF)/src/ft_disable_flag.c					\
+					$(FT_PRINTF)/src/ft_forbidden_conv.c
+
+
 ALLFLAGS = -I$(INCLUDES) -o
 OBJ = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
+PRINTF_OBJ = $(addprefix $(OBJDIR)/, $(FT_PRINTF_SRCS:.c=.o))
 RM = rm -rf
 PRINT = printf
 
@@ -105,9 +168,9 @@ _END=\e[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(PRINTF_OBJ)
 	@$(PRINT) "\nCreating library... :"
-	@ar rcs $(NAME) $(OBJ)
+	@ar rcs $@ $^
 	@printf "[$(_GREEN)✓$(_END)]\n\n"
 
 $(OBJDIR)/%.o: %.c $(HEAD)
@@ -117,7 +180,9 @@ $(OBJDIR)/%.o: %.c $(HEAD)
 
 $(OBJDIR) :
 	@mkdir  $@ $@/$(FT_IS_DIR) $@/$(FT_LST_DIR) $@/$(FT_MEM_DIR) \
-			$@/$(FT_MISC_DIR) $@/$(FT_PUT_DIR) $@/$(FT_STR_DIR)
+			$@/$(FT_MISC_DIR) $@/$(FT_PUT_DIR) $@/$(FT_STR_DIR) $@/$(FT_PRINTF)\
+			$@/$(FT_PRINTF)/src $@/$(FT_PRINTF)/$(LIBDIR) \
+			$@/$(FT_PRINTF)/$(CONVDIR) $@/$(FT_PRINTF)/$(FLAGDIR)
 
 $(OBJ) : | $(OBJDIR)
 
