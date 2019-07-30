@@ -6,47 +6,45 @@
 /*   By: amamy <amamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:03:39 by amamy             #+#    #+#             */
-/*   Updated: 2019/03/03 18:03:28 by amamy            ###   ########.fr       */
+/*   Updated: 2019/07/30 21:57:53 by amamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_nb_neg(char *str, int n)
+static char		*ft_nb_neg(char *str, long long n)
 {
-	size_t counter;
-	size_t end;
+	size_t	counter;
+	size_t	end;
+	int		min;
 
 	counter = 0;
+	min = 0;
 	str[counter] = '-';
 	end = ft_nb_len_base(n, 10);
-	if (n == -2147483648)
-	{
-		counter = ft_nb_len_base(n, 10) - 1;
-		str[counter] = (n % 10) * -1 + 48;
-		n = n / 10;
-		counter--;
-	}
+	if (n < -9223372036854775807 && n++)
+		min = 1;
 	n = -n;
 	str[end] = '\0';
-	if (n != -2147483648)
-		counter = ft_nb_len_base(n, 10);
+	counter = ft_nb_len_base(n, 10);
 	while (n != 0)
 	{
 		str[counter] = (n % 10) + 48;
 		n = n / 10;
 		counter--;
 	}
+	if (min == 1)
+		str[19] = '8';
 	return (str);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
 	char	*str;
 	size_t	counter;
 
 	counter = 0;
-	if (!(str = (char*)malloc(sizeof(char) * ft_nb_len_base(n, 10) + 1)))
+	if (!(str = (char*)ft_memalloc(sizeof(char) * ft_nb_len_base(n, 10) + 1)))
 		return (NULL);
 	if (n == 0 || n == -0)
 		str[0] = '0';
