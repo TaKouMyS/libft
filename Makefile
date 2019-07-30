@@ -6,7 +6,7 @@
 #    By: amamy <amamy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 20:19:54 by amamy             #+#    #+#              #
-#    Updated: 2019/07/30 22:27:23 by amamy            ###   ########.fr        #
+#    Updated: 2019/07/30 22:45:03 by amamy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -176,8 +176,8 @@ $(NAME): $(OBJ) $(PRINTF_OBJ)
 $(OBJDIR)/%.o: %.c $(HEAD)
 	@$(PRINT) "Libft : "
 	@$(CC) -c $(CFLAGS) $(ALLFLAGS) $@ $<
-	@$(PRINT) "$(_CYAN)$<\n$(_END)"
-
+	@$(PRINT) "$(_YELLOW)$<\n$(_END)"
+	
 $(OBJDIR) :
 	@mkdir  $@ $@/$(FT_IS_DIR) $@/$(FT_LST_DIR) $@/$(FT_MEM_DIR) \
 			$@/$(FT_MISC_DIR) $@/$(FT_PUT_DIR) $@/$(FT_STR_DIR) $@/$(FT_PRINTF)\
