@@ -6,28 +6,11 @@
 /*   By: amamy <amamy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 19:28:19 by amamy             #+#    #+#             */
-/*   Updated: 2019/07/26 20:45:43 by amamy            ###   ########.fr       */
+/*   Updated: 2019/09/01 19:20:00 by amamy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char		*ft_strndup(const char *s1, ssize_t len)
-{
-	ssize_t		counter;
-	char		*sdest;
-
-	counter = 0;
-	if (!(sdest = (char *)ft_memalloc(sizeof(char) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	while (s1[counter] != '\0' && counter < len)
-	{
-		sdest[counter] = s1[counter];
-		counter++;
-	}
-	sdest[counter] = '\0';
-	return (sdest);
-}
 
 static char	*ft_read_str(const int fd, char **str)
 {
