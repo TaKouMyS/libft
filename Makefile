@@ -6,7 +6,7 @@
 #    By: amamy <amamy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 20:19:54 by amamy             #+#    #+#              #
-#    Updated: 2019/07/30 22:45:03 by amamy            ###   ########.fr        #
+#    Updated: 2019/10/16 16:49:41 by amamy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ FLAGDIR = src/flags
 FT_PRINTF_SRCS =	$(FT_PRINTF)/$(LIBDIR)/ft_atoi.c				\
 					$(FT_PRINTF)/$(LIBDIR)/ft_bzero.c				\
 					$(FT_PRINTF)/$(LIBDIR)/ft_intlen.c				\
-					$(FT_PRINTF)/$(LIBDIR)/ft_itoa_base_P.c			\
+					$(FT_PRINTF)/$(LIBDIR)/ft_itoa_base_p.c			\
 					$(FT_PRINTF)/$(LIBDIR)/ft_itoa_bmul.c			\
 					$(FT_PRINTF)/$(LIBDIR)/ft_itoa_l.c				\
 					$(FT_PRINTF)/$(LIBDIR)/ft_memalloc.c			\
