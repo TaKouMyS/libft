@@ -6,7 +6,7 @@
 #    By: amamy <amamy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 20:19:54 by amamy             #+#    #+#              #
-#    Updated: 2019/10/16 16:49:41 by amamy            ###   ########.fr        #
+#    Updated: 2019/10/25 22:27:47 by amamy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCS =	$(FT_IS_DIR)/ft_isalnum.c			\
 		$(FT_MEM_DIR)/ft_memmove.c			\
 		$(FT_MEM_DIR)/ft_memset.c 			\
 		$(FT_MISC_DIR)/ft_atoi.c			\
+		$(FT_MISC_DIR)/ft_atoi_long.c			\
 		$(FT_MISC_DIR)/ft_bzero.c			\
 		$(FT_MISC_DIR)/ft_disp_ar.c			\
 		$(FT_MISC_DIR)/ft_itoa_base.c		\
